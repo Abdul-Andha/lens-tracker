@@ -1,6 +1,6 @@
 const { Collection } = require('discord.js');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
-const creds = require('./../creds.json');
+const creds = require('./../creds.json') || process.env.creds;
 let doc;
 
 const prefix = "`";
