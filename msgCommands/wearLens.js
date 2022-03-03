@@ -1,6 +1,6 @@
 //imports
-const date = require('date-and-time');
-const getLensOn = require('../utility/getLensOn')
+const moment = require('moment-timezone');
+const getLensOn = require('../utility/getLensOn');
 
 module.exports = {
   name: 'wearLens',
@@ -39,12 +39,14 @@ function getActiveLens(overviewSheet) {
 }
 
 function createEntry(left, right) {
+  let date = moment().tz("America/New_York").format('l');
+  let time = moment().tz("America/New_York").format('LT');
   const now = new Date();
   const entry = {
-    Date: date.format(now, 'MMM D, YYYY'),
+    Date: date,
     lensNumLeft: left,
     lensNumRight: right,
-    startTime: date.format(now, 'H:mm')
+    startTime: time
   }
   return entry;
 }

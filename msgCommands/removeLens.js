@@ -1,6 +1,6 @@
 //imports
-const date = require('date-and-time');
-const getLensOn = require('../utility/getLensOn')
+const moment = require('moment-timezone');
+const getLensOn = require('../utility/getLensOn');
 
 module.exports = {
   name: 'removeLens',
@@ -24,8 +24,7 @@ module.exports = {
     let totalTimeCell = await getCell(dailySheet, "F", rowNum);
     
     //update row values
-    const now = new Date();
-    endTimeCell.value = date.format(now, 'H:mm');
+    endTimeCell.value = moment().tz("America/New_York").format('LT');
     totalTimeCell.formula = `=E${rowNum} - D${rowNum}`
     await dailySheet.saveUpdatedCells();
     
