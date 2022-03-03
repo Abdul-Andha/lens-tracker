@@ -1,4 +1,4 @@
 node_modules
-creds.json
+google-credentials.json
 .DS_Store
 .env

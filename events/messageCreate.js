@@ -1,5 +1,5 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
-const creds = process.env.creds || require('./../creds.json');
+const creds = require('./../google-credentials.json');
 let doc;
 
 const prefix = "`";
