@@ -23,7 +23,7 @@ module.exports = {
     let endTimeCell = await getCell(dailySheet, "E", rowNum);
     let totalTimeCell = await getCell(dailySheet, "F", rowNum);
     
-    //update row values
+    //update targetCells
     endTimeCell.value = moment().tz("America/New_York").format('LT');
     totalTimeCell.formula = `=E${rowNum} - D${rowNum}`
     await dailySheet.saveUpdatedCells();
@@ -35,11 +35,6 @@ module.exports = {
     //send user confirmation message
     receivedMessage.react('👍');
   }
-}
-
-async function getRow(sheet) {
-  let rows = await sheet.getRows();
-  return rows[rows.length - 1];
 }
 
 async function getCell(sheet, colNum, rowNum) {

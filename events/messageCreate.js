@@ -27,5 +27,7 @@ function processCommand(receivedMessage, commands, bot) {
     commands.get('wearLens').execute(receivedMessage, doc);
 	else if (mainCommand === "removeLens" || mainCommand === "rl")
     commands.get('removeLens').execute(receivedMessage, doc);
+	else if (mainCommand === "retireLens" || mainCommand === "rt")
+    commands.get('retireLens').execute(receivedMessage, args, doc);
 	else receivedMessage.channel.send("Unknown Command");
 }
